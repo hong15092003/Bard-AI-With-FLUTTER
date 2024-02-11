@@ -1,6 +1,8 @@
-import 'package:bard_flutter/HomePage.dart';
+import 'Pages/Home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'Pages/History.dart';
+import 'Pages/Setting.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +15,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'BARD FLUTTER',
+      title: 'PINK AI',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const HomePage(),
+       // Define the routes
+      routes: {
+        '/home': (context) => const HomePage(),
+        '/history': (context) => const ChatHistoryPage(), // Make sure you have a ChatHistoryPage widget
+        '/setting': (context) => Settings(), // Make sure you have a Settings widget
+      },
     );
   }
+
 }
